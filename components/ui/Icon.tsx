@@ -49,14 +49,18 @@ function Icon(
   { id, strokeWidth = 16, size, width, height, ...otherProps }: Props,
 ) {
   return (
-    <svg
-      {...otherProps}
-      width={width ?? size}
-      height={height ?? size}
-      strokeWidth={strokeWidth}
-    >
-      <use href={asset(`/sprites.svg#${id}`)} />
-    </svg>
+    id !== "Logo"
+      ? (
+        <svg
+          {...otherProps}
+          width={width ?? size}
+          height={height ?? size}
+          strokeWidth={strokeWidth}
+        >
+          <use href={asset(`/sprites.svg#${id}`)} />
+        </svg>
+      )
+      : <img src={asset(`/logo.png`)} />
   );
 }
 
